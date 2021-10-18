@@ -24,17 +24,13 @@ class PrivacyPolicy extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    String mdFileName = 'privacy_policy.md';
+    String mdFileName = 'privacyPolicy.md';
     return Scaffold(
       appBar: AppBar(
         title: Text("Service Helper Privacy Policy"),
       ),
       body: FutureBuilder(
-        future: Future.delayed(Duration(milliseconds: 150)).then(
-          (value) {
-            return rootBundle.loadString('$mdFileName');
-          },
-        ),
+        future: rootBundle.loadString('assets/$mdFileName'),
         builder: (context, snapshot) {
           if (snapshot.hasData) {
             return Markdown(
